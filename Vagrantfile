@@ -25,8 +25,8 @@ end
   # Static IP for testing.
   config.vm.network :private_network, ip: "172.16.16.7"
   #
-  #config.vm.network :forwarded_port, guest: 22, host: 2221
-  #config.ssh.forward_agent = true
+  config.vm.network :forwarded_port, guest: 22, host: 2221
+  config.ssh.forward_agent = true
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below, 
   # forward RDP , IIS and WINRM ports
@@ -45,15 +45,6 @@ end
   
   # ...in the path for all users:
   config.vm.provision :shell, inline: '[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Chocolatey\bin", "Machine")'
-
-  # Installing Puppet:
-  config.vm.provision :shell, path: "scripts/Install-Puppet.ps1"
-  
-  # Enable remoting in, useless if you uncommented "v.gui = true" above
-   config.vm.provision :shell, path: "scripts/Enable-RDP.ps1"
-   
-  # Disable Firewall
-  config.vm.provision :shell, path: "scripts/disablefirewall.ps1" 
 
   # Install AWS Powelshell Tools just in case if you are using AWS
   #config.vm.provision :shell, path: "scripts/AWSPowerShellTool.ps1"
