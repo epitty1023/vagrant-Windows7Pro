@@ -38,9 +38,6 @@ end
  
   # sync the folders you want (generally the SVN root)
   config.vm.synced_folder "wwwroot", "c:\inetpub\wwwroot"
-
-  # Provisioning Secondary Disk
-  config.vm.provision :shell, path: "scripts/formatDdisk.ps1"
   
   # Provisioning local DevBox we will need:
   # chocolatey,  IIS and other misc Dev tools:
@@ -58,8 +55,8 @@ end
   # Disable Firewall
   config.vm.provision :shell, path: "scripts/disablefirewall.ps1" 
 
-  # Install AWS Powelshell Tools
-  config.vm.provision :shell, path: "scripts/AWSPowerShellTool.ps1"
+  # Install AWS Powelshell Tools just in case if you are using AWS
+  #config.vm.provision :shell, path: "scripts/AWSPowerShellTool.ps1"
 
   # Provision Operating Systems, disable few annoying features in Windows
   config.vm.provision :shell, path: "scripts/provision.ps1"
