@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 config.vm.box = "windows7"
-  config.vm.box_url = "https://vagrantcloud.com/ezequielpitty/boxes/Windows7Pro/versions/1/providers/virtualbox.box"
+  config.vm.box_url = "http://aka.ms/vagrant-win7-ie8"
   config.vm.guest = :windows
  
    # Configure 2GB (2048MB) of memory
